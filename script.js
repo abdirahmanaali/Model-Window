@@ -80,3 +80,21 @@ for (let i = 0; i < btnsOpenModal.length; i++)
 closeModal.addEventListener('click', hidingModal);
 
 overlay.addEventListener('click', hidingModal);
+
+// How to respond to keyboard events.
+
+// KEYBOARD EVENTS - are global events because they do not happen one one specific element and that's why we listen the whole document.
+// For keyboard event there are three types
+// KEY UP - happens when we lift our finger of the keyboard
+// KEY DOWN - is fired as soon as we just press down the key
+// KEY PRESS - is fired countinously as we keep our finger on a certain key
+document.addEventListener('keydown', function (e) {
+  // gives me the the keyboardevent object. i'm looking for the key value to access what was pressed
+  // console.log(e);
+
+  // if esc key is pressed & modal doesn't contain the classname hidden then hide it/ close it
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    // invoke the function that closes the modal
+    hidingModal();
+  }
+});
